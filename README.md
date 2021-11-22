@@ -1,37 +1,142 @@
-# face-recognizer-experiment
+<h1 align="center">
+  <a href="https://github.com/n1ckzhao/face-recognizer-experiment">
+    <!-- Please provide path to your logo here -->
+    <img src="docs/images/logo.svg" alt="Logo" width="100" height="100">
+  </a>
+</h1>
 
-基于 `opencv-python` 的人脸识别系统
+<div align="center">
+  Face-Recognizer-Experiment
+  <br />
+  <a href="#about"><strong>Explore the screenshots »</strong></a>
+  <br />
+  <br />
+  <a href="https://github.com/n1ckzhao/face-recognizer-experiment/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
+  ·
+  <a href="https://github.com/n1ckzhao/face-recognizer-experiment/issues/new?assignees=&labels=enhancement&template=02_FEATURE_REQUEST.md&title=feat%3A+">Request a Feature</a>
+  .
+  <a href="https://github.com/n1ckzhao/face-recognizer-experiment/issues/new?assignees=&labels=question&template=04_SUPPORT_QUESTION.md&title=support%3A+">Ask a Question</a>
+</div>
+
+<div align="center">
+<br />
+
+[![Project license](https://img.shields.io/github/license/n1ckzhao/face-recognizer-experiment.svg?style=flat-square)](LICENSE)
+
+[![Pull Requests welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/n1ckzhao/face-recognizer-experiment/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
+[![code with love by n1ckzhao](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-n1ckzhao-ff1414.svg?style=flat-square)](https://github.com/n1ckzhao)
+
+</div>
+
+<details open="open">
+<summary>Table of Contents</summary>
+
+- [About](#about)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Project assistance](#project-assistance)
+- [Contributing](#contributing)
+- [Authors & contributors](#authors--contributors)
+- [Security](#security)
+- [License](#license)
+
+</details>
 
 ---
 
-> data_gen.py
+## About
 
-获取人脸数据并存储
+This is a simple experiment of face recognition system.
 
----
+### Built With
 
-> trainner.py
+- [opencv](https://github.com/opencv/opencv)
+- [numpy](https://github.com/numpy/numpy)
+- [keras](https://github.com/keras-team/keras)
+- [serial](https://github.com/wjwwood/serial)
 
-训练模型
+## Getting Started
 
----
+### Prerequisites
 
-> reco.py
+Make sure you have installed python(recommand version 3.8).
 
-识别人脸
+### Installation
 
----
+1. Download the project source. And then go into project folder.
 
-文件中`haarcascade_frontalface_alt.xml`需更改为自己环境中的路径
+2. I have used `pipenv` as my package manager. So running enviroment could be installed easily.
 
-若要下载到本地参考，运行步骤：
+```sh
+pip install pipenv
+```
 
-1. `pip install pipenv`
-2. 切换至此项目根目录`pipenv install`
-3. 获取人脸数据`pipenv run data_gen.py`,生成目录，里面是人脸图片
-4. 训练模型`pipenv run trainner.py`,生成`trainner.xml`
-5. 识别人脸`pipenv run reco.py`
+```sh
+pipenv install
+```
 
-> 注：`reco.py` 里面的 `handle` 方法是对开发板的控制，若未连接开发板,仅在识别成功时显示 `user1` 字符串，识别失败时显示 `Unknown` 字符串.
+## Usage
 
-实验时间:2021.09.22 - 2021.09.26
+1. Collect the face photo who you want. These photo will be used as face templates.
+
+```sh
+pipenv run data_gen.py
+```
+
+When you running the code, a name(or code) string should be input by you.
+
+> Maybe you should check code line 3 in `data_gen.py`, you should make sure the `haarcascade_frontalface_alt.xml` is correct path.
+
+When you finish this step. You will see a folder called `dataSet` created. In this folder, there is a User.[name] folder that storaged 100 pieces your face photos you just collect.
+
+2. Then transfer the photo you just collect to data.
+
+```sh
+pipenv run trainner.py
+```
+
+When you finish this step, you can see a file named `trainner.yml` was created which storaged all the data of face photos.
+
+3. Setup the final procedure:
+
+```sh
+pipenv run reco.py
+```
+
+## Project assistance
+
+If you want to say **thank you** or/and support active development of Face-Recognizer-Experiment:
+
+- Add a [GitHub Star](https://github.com/n1ckzhao/face-recognizer-experiment) to the project.
+- Tweet about the Face-Recognizer-Experiment.
+- Write interesting articles about the project on [Dev.to](https://dev.to/), [Medium](https://medium.com/) or your personal blog.
+
+Together, we can make Face-Recognizer-Experiment **better**!
+
+## Contributing
+
+First off, thanks for taking the time to contribute! Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
+
+Please read [our contribution guidelines](docs/CONTRIBUTING.md), and thank you for being involved!
+
+## Authors & contributors
+
+The original setup of this repository is by [Nick Zhao](https://github.com/n1ckzhao).
+
+For a full list of all authors and contributors, see [the contributors page](https://github.com/n1ckzhao/face-recognizer-experiment/contributors).
+
+## Security
+
+Face-Recognizer-Experiment follows good practices of security, but 100% security cannot be assured.
+Face-Recognizer-Experiment is provided **"as is"** without any **warranty**. Use at your own risk.
+
+_For more information and to report security issues, please refer to our [security documentation](docs/SECURITY.md)._
+
+## License
+
+This project is licensed under the **MIT license**.
+
+See [LICENSE](LICENSE) for more information.
