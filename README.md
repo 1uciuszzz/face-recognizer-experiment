@@ -7,8 +7,6 @@
 <div align="center">
   Face-Recognizer-Experiment
   <br />
-  <a href="#about"><strong>Explore the screenshots »</strong></a>
-  <br />
   <br />
   <a href="https://github.com/n1ckzhao/face-recognizer-experiment/issues/new?assignees=&labels=bug&template=01_BUG_REPORT.md&title=bug%3A+">Report a Bug</a>
   ·
